@@ -13,7 +13,14 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
-$router->get('/', function () use ($router) {
-    return 'hostname: ' . gethostname() . PHP_EOL .
-        'public IP: ' . file_get_contents('https://icanhazip.com/') . PHP_EOL;
+use Psr\Log\LoggerInterface;
+
+$router->get('/', function (LoggerInterface $logger) use ($router) {
+    $hostname = gethostname();
+    $publicIp = trim(file_get_contents('https://icanhazip.com/'));
+
+    $logger->info('Logging request', ['hostname' => $hostname, 'public ip' => $publicIp]);
+
+    return "hostname: $hostname" . PHP_EOL .
+        "public IP: $publicIp" . PHP_EOL;
 });
