@@ -3,10 +3,10 @@ Transform: AWS::Serverless-2016-10-31
 Description: ''
 
 Resources:
-  HttpApi:
+  BrefLumen:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: 'http-api'
+      FunctionName: 'bref-lumen'
       Description: ''
       CodeUri: .
       Handler: public/index.php
