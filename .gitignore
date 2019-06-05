@@ -5,3 +5,7 @@ Homestead.yaml
 .env
 
 .stack.yaml
+release.zip
+
+.terraform
+terraform.tfstate*

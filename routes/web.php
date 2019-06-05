@@ -21,6 +21,8 @@ $router->get('/', function (LoggerInterface $logger) use ($router) {
 
     $logger->info('Logging request', ['hostname' => $hostname, 'public ip' => $publicIp]);
 
-    return "hostname: $hostname" . PHP_EOL .
-        "public IP: $publicIp" . PHP_EOL;
+    return response()->json([
+        'hostname' => $hostname,
+        'public IP' => $publicIp
+    ]);
 });

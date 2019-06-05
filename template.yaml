@@ -8,11 +8,21 @@ Resources:
     Properties:
       FunctionName: 'bref-lumen'
       Description: ''
-      CodeUri: .
+      CodeUri: release.zip
       Handler: public/index.php
       Timeout: 30 # in seconds (API Gateway has a timeout of 30 seconds)
       MemorySize: 1024 # The memory size is related to the pricing and CPU power
       Runtime: provided
+      Policies:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0c1914a5cfe4172cb
+        SubnetIds:
+          - subnet-0d7d422ac24a691c1
+          - subnet-0bc04f753fdc7e546
+          - subnet-043175d6a65d8c35a
+
       Layers:
         - 'arn:aws:lambda:eu-north-1:209497400698:layer:php-73-fpm:5'
       Environment:
