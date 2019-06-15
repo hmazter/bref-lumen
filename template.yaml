@@ -24,7 +24,7 @@ Resources:
           - subnet-043175d6a65d8c35a
 
       Layers:
-        - 'arn:aws:lambda:eu-north-1:209497400698:layer:php-73-fpm:5'
+        - 'arn:aws:lambda:eu-north-1:209497400698:layer:php-73-fpm:6'
       Environment:
         Variables:
           APP_KEY: '{{resolve:ssm:/hmazter-bref-lumen-example/APP_KEY:1}}'
